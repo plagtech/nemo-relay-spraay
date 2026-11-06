@@ -1,0 +1,21 @@
+# Secrets: never commit
+.env
+.env.*
+
+# Not part of this package
+NeMo-Relay/
+CLAUDE-CODE-BRIEF-nemo-relay-plugin.md
+PHASE-0-RECON-REPORT.md
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+dist/
+build/
+*.egg-info/
+
+# Review material, not part of the package
+ISSUE-DRAFT.md

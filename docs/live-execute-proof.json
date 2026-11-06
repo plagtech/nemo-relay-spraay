@@ -1,0 +1,81 @@
+{
+  "captured_at": "2026-11-06T20:28:53.752050+00:00",
+  "gateway_version_endpoint": "https://gateway.spraay.app/health",
+  "request": {
+    "method": "POST",
+    "url": "https://gateway.spraay.app/api/v1/batch/execute",
+    "json": {
+      "token": "USDC",
+      "chain": "base",
+      "sender": "0xd146947A859081F1adB310ae2efF7069d617CCe0",
+      "recipients": [
+        "0xd146947A859081F1adB310ae2efF7069d617CCe0",
+        "0x000000000000000000000000000000000000dEaD"
+      ],
+      "amounts": [
+        "10000",
+        "20000"
+      ]
+    }
+  },
+  "challenge_paid": {
+    "scheme": "exact",
+    "network": "eip155:8453",
+    "amount": "20000",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "payTo": "0xAd62f03C7514bb8c51f1eA70C2b75C37404695c8",
+    "maxTimeoutSeconds": 300,
+    "extra": {
+      "name": "USD Coin",
+      "version": "2"
+    },
+    "resource": "https://gateway.spraay.app/api/v1/batch/execute"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json; charset=utf-8",
+      "payment-response": "eyJzdWNjZXNzIjp0cnVlLCJwYXllciI6IjB4ZDE0Njk0N0E4NTkwODFGMWFkQjMxMGFlMmVmRjcwNjlkNjE3Q0NlMCIsInRyYW5zYWN0aW9uIjoiMHhmODk0MTk5Y2E2MmYzMzU2NDg1NTRkMzFiMzIxZmI3MmFlMDJmZTJkNzhiZWIzMzU2ZDhjMDY5Mzg3NjJjMGYyIiwibmV0d29yayI6ImVpcDE1NTo4NDUzIn0="
+    },
+    "payment_response_decoded": {
+      "success": true,
+      "payer": "0xd146947A859081F1adB310ae2efF7069d617CCe0",
+      "transaction": "0xf894199ca62f335648554d31b321fb72ae02fe2d78beb3356d8c06938762c0f2",
+      "network": "eip155:8453"
+    },
+    "json": {
+      "success": true,
+      "contract": "0x1646452F98E36A3c9Cfc3eDD8868221E207B5eEC",
+      "token": {
+        "symbol": "USDC",
+        "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "decimals": 6,
+        "isETH": false
+      },
+      "batch": {
+        "recipientCount": 2,
+        "totalAmount": "0.03",
+        "fee": "0.00009",
+        "feePercent": "0.3%",
+        "totalWithFee": "0.03009"
+      },
+      "transaction": {
+        "to": "0x1646452F98E36A3c9Cfc3eDD8868221E207B5eEC",
+        "data": "0xfb83b683000000000000000000000000833589fcd6edb6e08f4c7c32d4f71b54bda0291300000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000002000000000000000000000000d146947a859081f1adb310ae2eff7069d617cce00000000000000000000000000000000000000000000000000000000000002710000000000000000000000000000000000000000000000000000000000000dead0000000000000000000000000000000000000000000000000000000000004e20",
+        "value": "0",
+        "chainId": 8453,
+        "gasLimit": "0x38270"
+      },
+      "approvalRequired": {
+        "token": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+        "spender": "0x1646452F98E36A3c9Cfc3eDD8868221E207B5eEC",
+        "amount": "30090",
+        "amountFormatted": "0.03009"
+      }
+    },
+    "text": null
+  },
+  "usdc_raw_before": 350000,
+  "usdc_raw_after": 330000,
+  "signed_or_broadcast_batch_tx": false
+}

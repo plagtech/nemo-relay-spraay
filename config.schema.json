@@ -1,0 +1,45 @@
+{
+  "$comment": "SPDX-License-Identifier: Apache-2.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Spraay Batch Worker Plugin",
+  "description": "Configures the worker that builds unsigned batch transactions through the Spraay gateway.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "chains": {
+      "description": "Chains enabled for batches. The gateway's estimate.supported must also be true.",
+      "type": "array",
+      "items": { "type": "string", "enum": ["base", "peaq"] },
+      "minItems": 1,
+      "default": ["base", "peaq"]
+    },
+    "max_recipients": {
+      "description": "Largest number of recipients allowed in one batch.",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 200,
+      "default": 200
+    },
+    "redact_recipients": {
+      "description": "Remove recipient addresses, the sender, and calldata from emitted events.",
+      "type": "boolean",
+      "default": true
+    },
+    "priority": {
+      "description": "Middleware priority. Lower values run earlier.",
+      "type": "integer",
+      "default": 10
+    },
+    "max_access_fee_raw": {
+      "description": "Largest x402 access fee, in raw base units, offered to the app's payment callback.",
+      "type": "integer",
+      "minimum": 0,
+      "default": 20000
+    },
+    "gateway_url": {
+      "description": "Gateway base URL. Falls back to SPRAAY_GATEWAY_URL, then https://gateway.spraay.app.",
+      "type": "string",
+      "pattern": "^https?://"
+    }
+  }
+}

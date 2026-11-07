@@ -26,6 +26,12 @@ test = [
   "ruff>=0.8",
 ]
 
+# Only for examples/x402_callback.py. The plugin never imports these and never holds a key.
+example = [
+  "nemo-relay[cli]>=0.11.1,<1.0",
+  "x402[evm]>=2.27",
+]
+
 [tool.uv]
 default-groups = ["test"]
 

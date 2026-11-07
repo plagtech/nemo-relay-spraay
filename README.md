@@ -57,10 +57,10 @@ import nemo_relay
 from nemo_relay import plugin, tools
 
 
-def pay_access_fee(args):
-    # Only called when the gateway asks for x402 payment. Your app owns the key.
-    challenge = args["spraay_payment_challenge"]
-    return nemo_relay.ToolExecutionResult({"headers": sign_x402_payment(challenge)}, None)
+def decline_payment(args):
+    # Only called when the gateway asks for x402 payment. Returning no headers spends nothing.
+    # See examples/x402_callback.py for a callback that pays.
+    return nemo_relay.ToolExecutionResult({}, None)
 
 
 async with await plugin.initialize(plugin.PluginConfig(components=[])):
@@ -75,11 +75,12 @@ async with await plugin.initialize(plugin.PluginConfig(components=[])):
                 {"to": "0x2222222222222222222222222222222222222222", "amount": "2.25"},
             ],
         },
-        pay_access_fee,
+        decline_payment,
     )
 
-# Nothing has been signed. For ERC-20 tokens, the app first approves
-# outcome.result["approval_required"], then signs and broadcasts outcome.result["transaction"].
+# With a callback that pays, outcome.result holds the unsigned transaction. For ERC-20 tokens,
+# the app first approves outcome.result["approval_required"], then signs and broadcasts
+# outcome.result["transaction"].
 ```
 
 Amounts are decimal strings in human units. Pass `decimals` for any token that isn't one of the
@@ -94,9 +95,15 @@ worker can call back into the host, so this works from any language and the key 
 - Return `{"headers": {...}}` to pay. The worker retries once and never retries a rejected payment.
 - Return anything else to decline. The tool then returns `{"status": "payment_required", "challenge": ...}`, with nothing spent.
 
+`examples/x402_callback.py` is a runnable host with a paying callback built on the x402 SDK. It spends
+nothing unless you pass `--pay`, and that callback signs only the expected fee, once per run. Its
+dependencies are in the `example` group (`uv sync --group example`), not in the plugin's own, because the
+callback and its key belong to your application.
+
 ## Where it runs
 
-Tested over real gRPC with the Python SDK host on Relay 0.11.1, on Windows.
+Tested over real gRPC with the Python SDK host on Relay 0.11.1, on Windows, including one real paid
+call against the live gateway, recorded in `docs/live-worker-proof.json`.
 
 - **Not yet tested:** Node.js and Rust SDK hosts, and the CLI gateway.
 - **Requires managed execution:** building a batch relies on an execution intercept, which needs a host
@@ -134,7 +141,8 @@ uv run pytest
 ```
 
 Tests run offline and replay `docs/live-execute-proof.json`, a recorded response from one real paid
-`batch/execute` call. That transaction was never signed or broadcast.
+`batch/execute` call. The example's tests run when the `example` group is synced. Neither unsigned
+transaction in `docs/` was ever signed or broadcast.
 
 All logic stays in `nemo_relay_spraay/worker.py` because the manifest digest covers only that file.
 If you change it, update `integrity.sha256` in `relay-plugin.toml`; a test fails until you do.

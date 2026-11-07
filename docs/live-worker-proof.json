@@ -1,0 +1,157 @@
+{
+  "captured_at": "2026-11-07T02:50:21.569863+00:00",
+  "path": "Relay Python SDK host -> gRPC -> worker -> gateway, with the host callback paying x402",
+  "result": {
+    "access_fee": {
+      "amount_raw": "20000",
+      "network": "eip155:8453",
+      "tx_hash": "0xaaaf988c8d60d98e3fd037d3a1b6d1908e79621214d3280eb2a4cd1743809ecf"
+    },
+    "approval_required": {
+      "amount": "30090",
+      "amountFormatted": "0.03009",
+      "spender": "0x1646452F98E36A3c9Cfc3eDD8868221E207B5eEC",
+      "token": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    },
+    "batch": {
+      "fee": "0.00009",
+      "feePercent": "0.3%",
+      "fee_raw": "90",
+      "recipientCount": 2,
+      "totalAmount": "0.03",
+      "totalWithFee": "0.03009",
+      "total_raw": "30000",
+      "total_with_fee_raw": "30090"
+    },
+    "chain": "base",
+    "contract": "0x1646452F98E36A3c9Cfc3eDD8868221E207B5eEC",
+    "estimated_gas_usd": 0.046,
+    "status": "unsigned",
+    "token": {
+      "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "decimals": 6,
+      "isETH": false,
+      "symbol": "USDC"
+    },
+    "transaction": {
+      "chainId": 8453,
+      "data": "0xfb83b683000000000000000000000000833589fcd6edb6e08f4c7c32d4f71b54bda0291300000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000002000000000000000000000000d146947a859081f1adb310ae2eff7069d617cce00000000000000000000000000000000000000000000000000000000000002710000000000000000000000000000000000000000000000000000000000000dead0000000000000000000000000000000000000000000000000000000000004e20",
+      "gasLimit": "0x38270",
+      "to": "0x1646452F98E36A3c9Cfc3eDD8868221E207B5eEC",
+      "value": "0"
+    }
+  },
+  "events": [
+    {
+      "name": "spraay_build_batch",
+      "scope_category": "start",
+      "data": {
+        "amounts": [
+          "10000",
+          "20000"
+        ],
+        "amounts_human": [
+          "0.01",
+          "0.02"
+        ],
+        "chain": "base",
+        "decimals": 6,
+        "recipients": "[REDACTED]",
+        "sender": "[REDACTED]",
+        "token": "USDC"
+      },
+      "spraay_metadata": {
+        "spraay.amounts_human": [
+          "0.01",
+          "0.02"
+        ],
+        "spraay.amounts_raw": [
+          "10000",
+          "20000"
+        ],
+        "spraay.chain": "base",
+        "spraay.recipient_count": 2,
+        "spraay.token": "USDC",
+        "spraay.total_raw": "30000"
+      }
+    },
+    {
+      "name": "spraay_build_batch",
+      "scope_category": "end",
+      "data": {
+        "access_fee": {
+          "amount_raw": "20000",
+          "network": "eip155:8453",
+          "tx_hash": "0xaaaf988c8d60d98e3fd037d3a1b6d1908e79621214d3280eb2a4cd1743809ecf"
+        },
+        "approval_required": {
+          "amount": "30090",
+          "amountFormatted": "0.03009",
+          "spender": "0x1646452F98E36A3c9Cfc3eDD8868221E207B5eEC",
+          "token": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        },
+        "batch": {
+          "fee": "0.00009",
+          "feePercent": "0.3%",
+          "fee_raw": "90",
+          "recipientCount": 2,
+          "totalAmount": "0.03",
+          "totalWithFee": "0.03009",
+          "total_raw": "30000",
+          "total_with_fee_raw": "30090"
+        },
+        "chain": "base",
+        "contract": "0x1646452F98E36A3c9Cfc3eDD8868221E207B5eEC",
+        "estimated_gas_usd": 0.046,
+        "status": "unsigned",
+        "token": {
+          "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+          "decimals": 6,
+          "isETH": false,
+          "symbol": "USDC"
+        },
+        "transaction": {
+          "chainId": 8453,
+          "data": "[REDACTED]",
+          "gasLimit": "0x38270",
+          "to": "0x1646452F98E36A3c9Cfc3eDD8868221E207B5eEC",
+          "value": "0"
+        }
+      },
+      "spraay_metadata": {
+        "spraay.access_fee_amount_raw": "20000",
+        "spraay.access_fee_network": "eip155:8453",
+        "spraay.access_fee_tx_hash": "0xaaaf988c8d60d98e3fd037d3a1b6d1908e79621214d3280eb2a4cd1743809ecf",
+        "spraay.chain": "base",
+        "spraay.protocol_fee_human": "0.00009",
+        "spraay.protocol_fee_raw": "90",
+        "spraay.recipient_count": 2,
+        "spraay.status": "unsigned",
+        "spraay.total_human": "0.03",
+        "spraay.total_raw": "30000"
+      }
+    },
+    {
+      "name": "spraay.batch.built",
+      "scope_category": null,
+      "data": {
+        "spraay.access_fee_amount_raw": "20000",
+        "spraay.access_fee_network": "eip155:8453",
+        "spraay.access_fee_tx_hash": "0xaaaf988c8d60d98e3fd037d3a1b6d1908e79621214d3280eb2a4cd1743809ecf",
+        "spraay.chain": "base",
+        "spraay.protocol_fee_human": "0.00009",
+        "spraay.protocol_fee_raw": "90",
+        "spraay.recipient_count": 2,
+        "spraay.status": "unsigned",
+        "spraay.total_human": "0.03",
+        "spraay.total_raw": "30000"
+      },
+      "spraay_metadata": {}
+    }
+  ],
+  "usdc_raw_before": 330000,
+  "usdc_raw_after": 310000,
+  "payment_header_in_events": false,
+  "wallet_address_in_events": false,
+  "signed_or_broadcast_batch_tx": false
+}
